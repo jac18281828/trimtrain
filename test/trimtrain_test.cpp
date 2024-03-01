@@ -39,7 +39,7 @@ TEST(TrimtrainTest, TestIncorrectUsage)
     char *argv[] = {(char *)"trimtrain", (char *)"x"};
     auto args = trimtrain::parse_args(2, argv);
     ASSERT_FALSE(args.has_value());
-    ASSERT_EQ(args.error(), "Usage: trimtrain [-s<separator> value]");
+    ASSERT_EQ(args.error(), "trimtrain: normalize all spaces to single spaces.\nUsage: trimtrain [-s<separator> value]");
 }
 
 TEST(TrimtrainTest, TestSimplePushPop)
@@ -127,8 +127,6 @@ TEST(TrimtrainTest, TestTrimtrainParser)
     {
         output.push_back(c.value());
     }
-    std::cout << output << std::endl;
-    std::cout << expected << std::endl;
     ASSERT_EQ(output, expected);
 }
 

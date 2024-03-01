@@ -85,7 +85,7 @@ namespace trimtrain
 
         if (argv[1][0] != '-' || std::string("--help") == argv[1] || std::string("-h") == argv[1])
         {
-            auto error_msg = "Usage: " + std::string(argv[0]) + " [-s<separator> value]";
+            auto error_msg = std::string(argv[0]) + ": normalize all spaces to single spaces.\nUsage: " + std::string(argv[0]) + " [-s<separator> value]";
             return std::unexpected(error_msg);
         }
         for (int i = 1; i < argc; ++i)
